@@ -1,16 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useUserContext } from '../contexts/userContext';
+import FileUpload from '../components/fileUpload';
+import FileViewer from '../components/fileViewer';
 
 const FileViewerUploader: React.FC = () => {
 
-    const {user} = useUserContext();
+  const { user } = useUserContext();
+
+  const [showUpload, setShowUpload] = useState(true);
+
+  const toggleView = () => {
+    setShowUpload((prev) => !prev);
+  };
+
   return (
-    <div className="flex justify-center items-center h-screen">
-      <div className="bg-white p-6 rounded shadow-md w-96">
-        <h2 className="text-2xl font-bold mb-4">File Viewer & Uploader</h2>
-        <p>Welcome to the file viewer and uploader page!</p>
-        {user?.username}
-      </div>
+    <div className="p-4">
+      <button
+        onClick={toggleView}
+        className="mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+      >
+        {showUpload ? "View Uploaded Files" : "Upload New File"}
+      </button>
+
+      {showUpload ? <FileUpload /> : <FileViewer />}
     </div>
   );
 };
