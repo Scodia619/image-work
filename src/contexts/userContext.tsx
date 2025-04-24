@@ -6,6 +6,7 @@ interface User {
     email: string;
     createdAt: Date;
     permissions: number[];
+    sanctionFlag: boolean;
 }
 
 interface UserContextType {

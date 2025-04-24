@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useUserContext } from "../contexts/userContext";
 
 interface UserFile {
   id: string;
@@ -10,6 +11,7 @@ interface UserFile {
 }
 
 const FileViewer: React.FC = () => {
+  const {user} = useUserContext();
   const [userFiles, setUserFiles] = useState<UserFile[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -17,9 +19,8 @@ const FileViewer: React.FC = () => {
   useEffect(() => {
     const fetchUserFiles = async () => {
       try {
-        const userId = import.meta.env.VITE_USER_ID;
         const response = await axios.get<UserFile[]>(
-          `https://localhost:7066/Image?userId=${userId}`
+          `https://localhost:7066/Image?userId=${user?.id}`
         );
         setUserFiles(response.data);
       } catch (err: any) {

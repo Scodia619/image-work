@@ -21,7 +21,7 @@ const LoginForm: React.FC = () => {
       const user = response.data
       setUser(user);
 
-      navigate('/fileviewer');
+      navigate('/home');
     } catch (error: any) {
       setError('Invalid username or password');
     }
