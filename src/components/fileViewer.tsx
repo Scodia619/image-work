@@ -1,14 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useUserContext } from "../contexts/userContext";
+import { UserFile } from "../Models";
 
-interface UserFile {
-  id: string;
-  userId: string;
-  fileName: string;
-  fileUrl: string;
-  createdAt: string;
-}
 
 const FileViewer: React.FC = () => {
   const {user} = useUserContext();

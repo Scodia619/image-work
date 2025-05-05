@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
-import { useUserContext } from '../contexts/userContext';
 import FileUpload from '../components/fileUpload';
 import FileViewer from '../components/fileViewer';
 
 const FileViewerUploader: React.FC = () => {
-
-  const { user } = useUserContext();
 
   const [showUpload, setShowUpload] = useState(true);
 

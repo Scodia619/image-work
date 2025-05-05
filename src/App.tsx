@@ -3,6 +3,7 @@ import LoginForm from './components/loginForm';
 import FileViewerUploader from './pages/fileViewerUploader';
 import HomePage from './pages/homePage';
 import ApprovedFilesPage from './pages/approveFiles';
+import ViewPosts from './pages/viewPosts';
 
 const App: React.FC = () => {
 
@@ -13,6 +14,7 @@ const App: React.FC = () => {
         <Route path="/home" element={<HomePage />} />
         <Route path="/fileviewer" element={<FileViewerUploader />} />
         <Route path="/approve" element={<ApprovedFilesPage />} />
+        <Route path="/posts" element={<ViewPosts />} />
       </Routes>
     </Router>
   );

@@ -2,23 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useUserContext } from '../contexts/userContext';
 import "../styles/Images.css";
-
-interface User {
-    id: string;
-    username: string;
-    email: string;
-    createdAt: string;
-    permissions: number[];
-    sanctionFlag: boolean;
-}
-
-interface File {
-    id: number;
-    userId: string;
-    fileName: string;
-    fileUrl: string;
-    createdAt: string;
-  }
+import { User, File } from '../Models';
 
 const SanctionedUsersList: React.FC = () => {
 
