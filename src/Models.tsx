@@ -6,6 +6,17 @@ export type PostImage = {
     createdAt: string;
 }
 
+export type Comment = {
+    commentId: string;
+    postId: string;
+    userId: string;
+    createdAt: string;
+    updatedAt: string;
+    isDeleted: boolean;
+    body: string;
+    username: string;
+}
+
 export type Post = {
     postId: string;
     createdAt: string;
@@ -13,6 +24,7 @@ export type Post = {
     userId: string;
     username: string;
     images: PostImage[];
+    comments: Comment[];
 }
 
 export type User = {
